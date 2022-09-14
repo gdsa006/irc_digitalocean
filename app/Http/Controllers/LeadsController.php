@@ -11,15 +11,6 @@ use View;
 
 class LeadsController extends Controller
 {
-
-    public function test(){
-        $client = new \GuzzleHttp\Client();
-        $response = $client->get('https://jsonplaceholder.typicode.com/posts', 
-        ['verify' => false
-    ]); 
-        return $response->getBody();
-    }
-
     public function Steps(Request $request){
         $address = $request->autocomplete;
         $findAddress = Location::where('Address', $address)->count();
@@ -545,7 +536,7 @@ class LeadsController extends Controller
 
             \Mail::to($email)->send(new \App\Mail\CustomerNotificationEmail($details2));
 
-            return response()->json(array('status' => true, 'gotostep' => ''));
+            return response()->json(array('status' => true, 'gotostep' => '', 'test' => '123'));
         }
 
     }

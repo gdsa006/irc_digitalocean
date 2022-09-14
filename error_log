@@ -1,1 +1,4 @@
 [20-Jan-2022 14:06:44 UTC] PHP Fatal error:  Allowed memory size of 1610612736 bytes exhausted (tried to allocate 4096 bytes) in phar:///usr/local/bin/composer.phar/src/Composer/DependencyResolver/RuleWatchGraph.php on line 52
+[30-Aug-2022 11:13:23 UTC] PHP Fatal error:  Allowed memory size of 1610612736 bytes exhausted (tried to allocate 29488659 bytes) in phar:///usr/local/bin/composer.phar/src/Composer/Util/RemoteFilesystem.php on line 462
+[30-Aug-2022 11:17:33 UTC] PHP Fatal error:  Allowed memory size of 1610612736 bytes exhausted (tried to allocate 44121456 bytes) in phar:///usr/local/bin/composer.phar/src/Composer/Util/RemoteFilesystem.php on line 462
+[31-Aug-2022 13:23:53 UTC] PHP Fatal error:  Allowed memory size of 1610612736 bytes exhausted (tried to allocate 37338442 bytes) in phar:///usr/local/bin/composer.phar/src/Composer/Util/RemoteFilesystem.php on line 462

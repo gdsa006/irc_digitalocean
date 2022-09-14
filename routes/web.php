@@ -41,7 +41,6 @@ Route::get('/', function () {
 
 
 
-Route::get('/test', [App\Http\Controllers\LeadsController::class,'test'])->name('test');
 
 
  Route::get('/fullName', [App\Http\Controllers\LeadsController::class,'fullName'])->name('fullName');
