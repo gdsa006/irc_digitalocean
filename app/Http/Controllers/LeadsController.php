@@ -532,9 +532,9 @@ class LeadsController extends Controller
                 'estimate' => $x
             ];
 
-            // \Mail::to('leads@idahoroofingcost.com')->send(new \App\Mail\AdminNotificationEmail($details));
+            \Mail::to('leads@idahoroofingcost.com')->send(new \App\Mail\AdminNotificationEmail($details));
 
-            // \Mail::to($email)->send(new \App\Mail\CustomerNotificationEmail($details2));
+            \Mail::to($email)->send(new \App\Mail\CustomerNotificationEmail($details2));
 
             return response()->json(array('status' => true, 'gotostep' => '', 'test' => '123'));
         }
