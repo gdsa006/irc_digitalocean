@@ -8,6 +8,7 @@ use App\Models\Lead;
 use App\Models\Rate;
 use League\CommonMark\Extension\SmartPunct\EllipsesParser;
 use View;
+use GuzzleHttp\Client as GuzzleClient;
 
 class LeadsController extends Controller
 {
@@ -532,9 +533,36 @@ class LeadsController extends Controller
                 'estimate' => $x
             ];
 
-            \Mail::to('info@idahoroofingcost.com')->send(new \App\Mail\AdminNotificationEmail($details));
+            // \Mail::to('info@idahoroofingcost.com')->send(new \App\Mail\AdminNotificationEmail($details));
 
-            \Mail::to($email)->send(new \App\Mail\CustomerNotificationEmail($details2));
+            // \Mail::to($email)->send(new \App\Mail\CustomerNotificationEmail($details2));
+
+
+            $headers = [
+                'Content-Type' => 'application/json',
+                'Authorization' => 'Bearer ' + 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2NhdGlvbl9pZCI6IkQ4WVRWb2hnSnJaYU5iZHI0c25kIiwiY29tcGFueV9pZCI6InFwckhpT0JUTVRkVDBhZGpXTEtqIiwidmVyc2lvbiI6MSwiaWF0IjoxNjYwODM1NTM2ODcwLCJzdWIiOiJ2cDlKaEpwbmxkYzhuUklPYXR1UCJ9.6gamZ1OOjc9DfH03Ro3n4M0c1YHeZ6vRrrJwQ2NbR5k',
+            ];
+
+            $client = new GuzzleClient([
+                'headers' => $headers
+            ]);
+
+            $body = '{
+                "firstname" : "abc",
+                "lastname" : "def",
+                "email" : "abc@gmail.com",
+                "phone" : "3243234234
+            }';
+
+            $r = $client->request('POST', 'https://rest.gohighlevel.com/v1/contacts/', [
+                'body' => $body
+            ]);
+
+            // $client = new Client(['base_uri' => 'https://rest.gohighlevel.com/v1/']);
+            // $response = $client->request('POST', '/contacts/', ['form_params' => [
+            //     'name' => 'Dan',
+            //     'job' => 'Full Stack Dev'
+            // ]]);
 
             return response()->json(array('status' => true, 'gotostep' => '', 'test' => '123'));
         }
