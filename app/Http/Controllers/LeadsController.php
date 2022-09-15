@@ -538,25 +538,41 @@ class LeadsController extends Controller
             // \Mail::to($email)->send(new \App\Mail\CustomerNotificationEmail($details2));
 
 
-            $headers = [
-                'Content-Type' => 'application/json',
-                'Authorization' => 'Bearer ' + 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2NhdGlvbl9pZCI6IkQ4WVRWb2hnSnJaYU5iZHI0c25kIiwiY29tcGFueV9pZCI6InFwckhpT0JUTVRkVDBhZGpXTEtqIiwidmVyc2lvbiI6MSwiaWF0IjoxNjYwODM1NTM2ODcwLCJzdWIiOiJ2cDlKaEpwbmxkYzhuUklPYXR1UCJ9.6gamZ1OOjc9DfH03Ro3n4M0c1YHeZ6vRrrJwQ2NbR5k',
-            ];
+                $client = new Client();
+                $guzzleResponse = $client->post(
+                        'https://rest.gohighlevel.com/v1/contacts/', [
+                        'headers' => [
+                            'APP_KEY'=>'Bearer ' + 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2NhdGlvbl9pZCI6IkQ4WVRWb2hnSnJaYU5iZHI0c25kIiwiY29tcGFueV9pZCI6InFwckhpT0JUTVRkVDBhZGpXTEtqIiwidmVyc2lvbiI6MSwiaWF0IjoxNjYwODM1NTM2ODcwLCJzdWIiOiJ2cDlKaEpwbmxkYzhuUklPYXR1UCJ9.6gamZ1OOjc9DfH03Ro3n4M0c1YHeZ6vRrrJwQ2NbR5k'
+                        ],
+                        'form_params' => [
+                            'firstname' => 'Dan',
+                            'lastname' => 'Full Stack Dev',
+                            'email' => 'gdsa006@gmail.com',
+                            'phone' => '9779041144'
+                        ]
+                    ]);
+                
+                
+           
+// $client = new Client(['base_uri' => 'https://rest.gohighlevel.com/v1/']);
+//             $response = $client->request('POST', '/contacts/', ['form_params' => [
+//                 'name' => 'Dan',
+//                 'job' => 'Full Stack Dev'
+//             ]]);
 
-            $client = new GuzzleClient([
-                'headers' => $headers
-            ]);
 
-            $body = '{
-                "firstname" : "abc",
-                "lastname" : "def",
-                "email" : "abc@gmail.com",
-                "phone" : "3243234234
-            }';
+            
 
-            $r = $client->request('POST', 'https://rest.gohighlevel.com/v1/contacts/', [
-                'body' => $body
-            ]);
+            // $body = '{
+            //     "firstname" : "abc",
+            //     "lastname" : "def",
+            //     "email" : "abc@gmail.com",
+            //     "phone" : "3243234234
+            // }';
+
+            // $r = $client->request('POST', 'https://rest.gohighlevel.com/v1/contacts/', [
+            //     'body' => $body
+            // ]);
 
             // $client = new Client(['base_uri' => 'https://rest.gohighlevel.com/v1/']);
             // $response = $client->request('POST', '/contacts/', ['form_params' => [
