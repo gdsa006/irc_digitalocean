@@ -546,7 +546,7 @@ class LeadsController extends Controller
                         'headers' => [
                             'Authorization'=>'Bearer ' . 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJsb2NhdGlvbl9pZCI6IkQ4WVRWb2hnSnJaYU5iZHI0c25kIiwiY29tcGFueV9pZCI6InFwckhpT0JUTVRkVDBhZGpXTEtqIiwidmVyc2lvbiI6MSwiaWF0IjoxNjYwODM1NTM2ODcwLCJzdWIiOiJ2cDlKaEpwbmxkYzhuUklPYXR1UCJ9.6gamZ1OOjc9DfH03Ro3n4M0c1YHeZ6vRrrJwQ2NbR5k'
                         ],
-                        'form_params' => [
+                        'body' => [
                             'firstname' => 'Dan',
                             'lastname' => 'Full Stack Dev',
                             'email' => 'gdsa006@gmail.com',
