@@ -8,7 +8,9 @@ use App\Models\Lead;
 use App\Models\Rate;
 use League\CommonMark\Extension\SmartPunct\EllipsesParser;
 use View;
-use GuzzleHttp\Client as GuzzleClient;
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\RequestException;
+
 
 class LeadsController extends Controller
 {
