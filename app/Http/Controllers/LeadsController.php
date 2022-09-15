@@ -552,38 +552,12 @@ class LeadsController extends Controller
                             'firstName' => $lead_find->fname,
                             'lastName' => $lead_find->lname,
                             'email' => $lead_find->email,
-                            'phone' => $lead_find->mobile
+                            'phone' => $lead_find->mobile,
+                            'tags' => 'new lead'
                         ])
                     ]);
                 
-                
-           
-// $client = new Client(['base_uri' => 'https://rest.gohighlevel.com/v1/']);
-//             $response = $client->request('POST', '/contacts/', ['form_params' => [
-//                 'name' => 'Dan',
-//                 'job' => 'Full Stack Dev'
-//             ]]);
-
-
-            
-
-            // $body = '{
-            //     "firstname" : "abc",
-            //     "lastname" : "def",
-            //     "email" : "abc@gmail.com",
-            //     "phone" : "3243234234
-            // }';
-
-            // $r = $client->request('POST', 'https://rest.gohighlevel.com/v1/contacts/', [
-            //     'body' => $body
-            // ]);
-
-            // $client = new Client(['base_uri' => 'https://rest.gohighlevel.com/v1/']);
-            // $response = $client->request('POST', '/contacts/', ['form_params' => [
-            //     'name' => 'Dan',
-            //     'job' => 'Full Stack Dev'
-            // ]]);
-
+       
             return response()->json(array('status' => true, 'gotostep' => '', 'test' => '123'));
         }
 
