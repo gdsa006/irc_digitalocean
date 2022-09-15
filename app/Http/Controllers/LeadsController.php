@@ -548,8 +548,8 @@ class LeadsController extends Controller
                             'Content-Type' => 'application/json'
                         ],
                         'body' => json_encode([
-                            'firstname' => 'Dan',
-                            'lastname' => 'Full Stack Dev',
+                            'firstName' => 'Dan',
+                            'lastName' => 'Full Stack Dev',
                             'email' => 'gdsa006@gmail.com',
                             'phone' => '9779041144'
                         ])
