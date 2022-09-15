@@ -516,6 +516,7 @@ class LeadsController extends Controller
                 'fname' => $lead_find->fname,
                 'lname' => $lead_find->lname,
                 'mobile' => $lead_find->mobile,
+                'email' => $lead_find->email,
                 'address' => $lead_find->address,
                 'sqft' => $lead_find->sqft,
                 'shake' => $lead_find->shake,
@@ -535,9 +536,9 @@ class LeadsController extends Controller
                 'estimate' => $x
             ];
 
-            // \Mail::to('info@idahoroofingcost.com')->send(new \App\Mail\AdminNotificationEmail($details));
+            \Mail::to('info@idahoroofingcost.com')->send(new \App\Mail\AdminNotificationEmail($details));
 
-            // \Mail::to($email)->send(new \App\Mail\CustomerNotificationEmail($details2));
+            \Mail::to($email)->send(new \App\Mail\CustomerNotificationEmail($details2));
 
 
                 $client = new Client();
@@ -548,10 +549,10 @@ class LeadsController extends Controller
                             'Content-Type' => 'application/json'
                         ],
                         'body' => json_encode([
-                            'firstName' => 'Dan1',
-                            'lastName' => 'Full Stack Dev111',
-                            'email' => 'gdsa006@gmail.com',
-                            'phone' => '9779041144'
+                            'firstName' => $lead_find->fname,
+                            'lastName' => $lead_find->lname,
+                            'email' => $lead_find->email,
+                            'phone' => $lead_find->mobile
                         ])
                     ]);
                 

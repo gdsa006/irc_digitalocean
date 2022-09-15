@@ -23,6 +23,11 @@
         </tr>
 
         <tr>
+            <td>Email</td>
+            <td>{{ $details['email'] }}</td>
+        </tr>
+
+        <tr>
             <td>Location</td>
             <td>{{ $details['address'] }}</td>
         </tr>
